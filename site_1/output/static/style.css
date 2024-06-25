@@ -1,0 +1,552 @@
+/********************variables********************/
+
+:root {
+  --col-1: #de6c83;
+  --col-2: #ecb0e1;
+  --col-3: black;
+  --col-4: rgba(0, 0, 0, 0.5);
+
+  --font-family: sans-serif;
+
+  --font-weight-bold: 700;
+  --font-weight-light: 500;
+  --font-weight-normal: 400;
+  --font-weight-lighter: 300;
+
+  --font-size-large: 2rem;
+  --font-size-medium: 1.5rem;
+  --font-size-normal: 1rem;
+  --font-size-small: 0.8rem;
+
+  --icon-size: 30px;
+}
+
+/********************global style********************/
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  margin: 0px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > :nth-child(2) {
+  flex-grow: 1;
+  max-width: 850px;
+  margin: auto;
+}
+
+.button {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-1);
+  border: 1px solid var(--col-4);
+  color: var(--col-4);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding-inline: 10px;
+  padding-block: 5px;
+}
+
+.button:hover {
+  border: 1px solid var(--col-3);
+}
+
+.button:after {
+  content: "";
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background: var(--col-4);
+  mask-image: url("https://img.icons8.com/material-outlined/24/long-arrow-up.png");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transform: rotate(90deg);
+}
+
+.selected {
+  color: var(--col-2);
+}
+
+p {
+  margin: 0px;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-lighter);
+  font-family: var(--font-family-1);
+  color: var(--col-4);
+  line-height: 2;
+}
+
+/********************navbar style********************/
+
+@scope (.navbar) {
+  input {
+    display: none;
+  }
+
+  :scope {
+    display: flex;
+    padding: 10px;
+    background: var(--col-1);
+    font-family: var(--font-family-1);
+  }
+
+  .menu {
+    display: flex;
+  }
+
+  .menu a {
+    padding: 10px;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-light);
+  }
+
+  .menu a:hover {
+    color: var(--col-2);
+  }
+
+  .header a {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+  }
+
+  @media (min-width: 601px) {
+    label {
+      display: none;
+    }
+
+    .header {
+      display: contents;
+    }
+
+    :scope {
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    :scope {
+      flex-direction: column;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu {
+      flex-direction: column;
+      max-height: 0;
+      overflow-y: hidden;
+      transition: max-height 1s;
+    }
+
+    label {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--col-2);
+      cursor: pointer;
+    }
+
+    label::after {
+      content: "";
+      width: var(--icon-size);
+      height: var(--icon-size);
+      background: var(--col-3);
+      mask-image: url("https://img.icons8.com/ios-glyphs/30/menu--v3.png");
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
+
+    input:checked + .menu {
+      max-height: 500px;
+    }
+
+    .menu a {
+      text-align: center;
+    }
+  }
+}
+
+/********************footer style********************/
+
+@scope (.footer) {
+  :scope {
+    display: flex;
+    background: var(--col-1);
+    padding-inline: 10px;
+    padding-block: 20px;
+  }
+
+  .social-media a {
+    background: var(--col-3);
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+
+  .social-media a:hover {
+    background: var(--col-2);
+  }
+
+  .social-media {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-media > :first-child {
+    mask-image: url("https://img.icons8.com/android/24/facebook.png");
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .social-media > :nth-child(2) {
+    mask-image: url("https://img.icons8.com/material-rounded/24/twitter.png");
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .social-media > :nth-child(3) {
+    mask-image: url("https://img.icons8.com/windows/32/linkedin-2.png");
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .social-media > :nth-child(4) {
+    mask-image: url("https://img.icons8.com/material-sharp/24/mail.png");
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  :scope > a {
+    display: flex;
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+    font-size: var(--font-size-normal);
+    align-items: center;
+  }
+
+  :scope > a:hover {
+    color: var(--col-2);
+  }
+
+  :scope > a::before {
+    content: "";
+    width: var(--icon-size);
+    height: var(--icon-size);
+    background: var(--col-3);
+    mask-image: url("https://img.icons8.com/material-outlined/24/long-arrow-up.png");
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  :scope > a:hover::before {
+    background: var(--col-2);
+  }
+
+  @media (min-width: 601px) {
+    :scope {
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    :scope {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .social-media {
+      justify-content: center;
+    }
+
+    :scope a {
+      align-self: center;
+    }
+  }
+}
+
+/********************home style********************/
+
+@scope (.home) {
+  :scope {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  > a {
+    align-self: center;
+  }
+}
+
+/********************all post style********************/
+
+@scope (.all-post) {
+  :scope {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  :scope > span {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+    border-bottom: 1px solid var(--col-4);
+    padding-bottom: 20px;
+    text-align: center;
+  }
+}
+
+/********************post card style********************/
+
+@scope (.post-card) {
+  :scope {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-bottom: 1px solid var(--col-4);
+    padding-bottom: 20px;
+  }
+
+  :scope > :first-child {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+  }
+
+  span {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+    color: var(--col-4);
+  }
+
+  > :last-child {
+    align-self: flex-start;
+  }
+}
+
+/********************contact form style********************/
+
+@scope (.contact-form) {
+  :scope {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  span {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  label {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+    color: var(--col-4);
+  }
+
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .input-section input,
+  .input-section textarea {
+    padding: 10px;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-light);
+    font-family: var(--font-family-1);
+  }
+
+  form > input {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+    color: var(--col-4);
+    align-self: flex-start;
+    background: white;
+    padding: 10px;
+    border: 1px solid var(--col-4);
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  form > input:hover {
+    border: 1px solid var(--col-3);
+  }
+}
+
+/********************author card style********************/
+
+@scope (.author-card) {
+  :scope {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--col-4);
+    padding-inline: 10px;
+    padding-block: 20px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+
+  img {
+    align-self: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  :scope > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  span {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+    color: var(--col-4);
+  }
+}
+
+/********************contact style********************/
+
+@scope (.contact) {
+  :scope {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  @media (min-width: 801px) {
+    :scope > * {
+      flex-grow: 1;
+    }
+  }
+
+  @media (max-width: 800px) {
+    :scope {
+      flex-direction: column;
+    }
+
+    .author-card {
+      align-self: center;
+      max-width: 400px;
+    }
+  }
+}
+
+/********************about content style********************/
+@scope (.about-content) {
+  :scope {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  span {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+  }
+}
+
+/********************about style********************/
+@scope (.about) {
+  :scope {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  > a {
+    font-size: var(--font-size-normal);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+    color: var(--col-4);
+    align-self: flex-start;
+    padding: 10px;
+    border: 1px solid var(--col-4);
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  > a:hover {
+    border: 1px solid var(--col-3);
+  }
+
+  > :nth-child(2) {
+    align-self: center;
+    max-width: 400px;
+  }
+}
+
+/********************post style********************/
+@scope (.post) {
+  :scope {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  span {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+  }
+
+  > :last-child {
+    align-self: flex-start;
+  }
+}
+
+/********************category style********************/
+
+@scope (.category) {
+  :scope {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  :scope > span {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-1);
+    border-bottom: 1px solid var(--col-4);
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  > a {
+    align-self: center;
+  }
+}
