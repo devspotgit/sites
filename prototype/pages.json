@@ -19,7 +19,7 @@
   {
     "collection": "navbar",
     "title": "About",
-    "path": "/porn",
+    "path": "/about",
     "template": "about"
   },
 
@@ -27,20 +27,6 @@
     "collection": "navbar",
     "title": "All Post",
     "path": "/all-post",
-    "template": "allPost"
-  },
-
-  {
-    "collection": "navbar",
-    "title": "All Post",
-    "path": "/sex",
-    "template": "allPost"
-  },
-
-  {
-    "collection": "navbar",
-    "title": "All Post",
-    "path": "/x-men",
     "template": "allPost"
   }
 ]
